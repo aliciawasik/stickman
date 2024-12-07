@@ -10,6 +10,27 @@
           text-align: center;
           margin: 20px;
         }
+        .hangman-container {
+          display: inline-block;
+          position: relative;
+          width: 150px;
+          height: 250px;
+          margin-bottom: 20px;
+        }
+        .hangman-part {
+          display: none;
+          position: absolute;
+        }
+        .base { width: 100px; height: 10px; background: black; bottom: 0; left: 25px; }
+        .pole { width: 10px; height: 200px; background: black; bottom: 0; left: 25px; }
+        .beam { width: 80px; height: 10px; background: black; top: 0; left: 25px; }
+        .rope { width: 5px; height: 30px; background: black; top: 10px; left: 85px; }
+        .head { width: 40px; height: 40px; border: 3px solid black; border-radius: 50%; top: 40px; left: 65px; }
+        .body { width: 5px; height: 60px; background: black; top: 80px; left: 85px; }
+        .left-arm { width: 5px; height: 40px; background: black; top: 80px; left: 45px; transform: rotate(45deg); transform-origin: top right; }
+        .right-arm { width: 5px; height: 40px; background: black; top: 80px; left: 85px; transform: rotate(-45deg); transform-origin: top left; }
+        .left-leg { width: 5px; height: 40px; background: black; top: 140px; left: 65px; transform: rotate(45deg); transform-origin: top right; }
+        .right-leg { width: 5px; height: 40px; background: black; top: 140px; left: 85px; transform: rotate(-45deg); transform-origin: top left; }
         .word {
           font-size: 24px;
           margin: 20px 0;
@@ -40,6 +61,18 @@
 </head>
 <body>
     <h1>Hangman Game</h1>
+    <div class="hangman-container">
+        <div class="hangman-part base"></div>
+        <div class="hangman-part pole"></div>
+        <div class="hangman-part beam"></div>
+        <div class="hangman-part rope"></div>
+        <div class="hangman-part head"></div>
+        <div class="hangman-part body"></div>
+        <div class="hangman-part left-arm"></div>
+        <div class="hangman-part right-arm"></div>
+        <div class="hangman-part left-leg"></div>
+        <div class="hangman-part right-leg"></div>
+      </div>
     <div class="word" id="word"></div> <!--displays current guessed word with placeholders-->
     <div class="keyboard" id="keyboard"></div> <!--creates interactive letter buttons-->
     <div class="message" id="message"></div> <!--displays win/lose messages-->
