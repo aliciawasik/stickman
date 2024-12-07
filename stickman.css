@@ -1,1 +1,25 @@
-
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+}
+.word {
+    font-size: 24px;
+    margin: 20px 0;
+}
+.letter {
+    display: inline-block;
+    font-size: 24px;
+    width: 30px;
+    border-bottom: 2px solid #000;
+    margin: 0 5px;
+}
+.keyboard button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+.message {
+    font-size: 20px;
+    color: #ff0000;
+    margin-top: 20px;
+}
