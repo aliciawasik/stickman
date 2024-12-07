@@ -1,17 +1,19 @@
 // Step 1: Game variables
-const words = ["javascript", "coding", "hangman", "developer", "html"];
+const words = ["javascript", "hangman", "developer", "frontend", "coding"];
 const word = words[Math.floor(Math.random() * words.length)];
 let guessedWord = Array(word.length).fill("_");
-let attempts = 6;
+let attempts = 0;
+const maxAttempts = 6;
 
 // Step 2: Select HTML elements
 const wordElement = document.getElementById("word");
 const keyboardElement = document.getElementById("keyboard");
 const messageElement = document.getElementById("message");
+const hangmanParts = document.querySelectorAll(".hangman-part");
 
 // Step 3: Display the word placeholders
 function updateWordDisplay() {
-  wordElement.textContent = guessedWord.join(" ");
+  wordElement.innerHTML = guessedWord.map(letter => `<span class="letter">${letter}</span>`).join("");
 }
 
 // Step 4: Generate the keyboard
@@ -39,16 +41,23 @@ function handleGuess(letter, button) {
     }
   } else {
     // Incorrect guess
-    attempts--;
-    messageElement.textContent = `❌ Incorrect! ${attempts} attempts left.`;
-    if (attempts === 0) {
+    attempts++;
+    updateHangman();
+    if (attempts === maxAttempts) {
       messageElement.textContent = "💀 Game over! The word was: " + word;
       disableKeyboard();
     }
   }
 }
 
-// Step 6: Disable the keyboard (end the game)
+// Step 6: Update the Hangman visual
+function updateHangman() {
+  if (attempts <= maxAttempts) {
+    hangmanParts[attempts - 1].style.display = "block";
+  }
+}
+
+// Step 7: Disable the keyboard (end the game)
 function disableKeyboard() {
   const buttons = keyboardElement.querySelectorAll("button");
   buttons.forEach((button) => (button.disabled = true));
