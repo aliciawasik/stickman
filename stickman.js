@@ -1,9 +1,9 @@
 // Step 1: Game variables
-const words = ["javascript", "hangman", "developer", "frontend", "coding"];
+const words = ["laptop", "computer science", "developer", "programming", "coding"];
 const word = words[Math.floor(Math.random() * words.length)];
 let guessedWord = Array(word.length).fill("_");
 let attempts = 0;
-const maxAttempts = 6;
+const maxAttempts = 10;
 
 // Step 2: Select HTML elements
 const wordElement = document.getElementById("word");
