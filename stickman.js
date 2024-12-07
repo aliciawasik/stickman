@@ -34,14 +34,14 @@ function handleGuess(letter, button) {
             if (word[i] === letter) guessedWord[i] = letter;
         }
         updateWordDisplay();
-        id (!guessedWord.includes("_")) {
+        id (!guessedWord.includes("_")); {
             messageElement.textContent = "🎉 You Win! The word was: " + word;
             disableKeyboard();
         }
     } else {
         // Incorrect guess
         attempts--;
-        messageElement.textContent = '❌ Incorrect! ${attempts} attemps left.';
+        messageElement.textContent = '❌ Incorrect! ${attempts} attempts left.';
         if (attempts === 0) {
             messageElement.textContent = "💀 Game Over! The word was: " + word;
         }
