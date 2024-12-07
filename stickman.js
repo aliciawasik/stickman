@@ -2,7 +2,7 @@
 
 // Game Variables
 const words = ["javascript", "coding", "hangman", "developer", "html"];
-cost word = words[Math.floor(Math.random() * words.length)];
+const word = words[Math.floor(Math.random() * words.length)];
 let guessedWord = Array(word.length).fill("_");
 let attempts = 6;
 
