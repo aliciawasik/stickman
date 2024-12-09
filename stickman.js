@@ -1,22 +1,22 @@
-// Step 1: Game variables
+// Game variables
 const words = ["laptop", "computer science", "developer", "programming", "coding"];
 const word = words[Math.floor(Math.random() * words.length)];
 let guessedWord = Array(word.length).fill("_");
 let attempts = 0;
 const maxAttempts = 10;
 
-// Step 2: Select HTML elements
+// Select HTML elements
 const wordElement = document.getElementById("word");
 const keyboardElement = document.getElementById("keyboard");
 const messageElement = document.getElementById("message");
 const hangmanParts = document.querySelectorAll(".hangman-part");
 
-// Step 3: Display the word placeholders
+// Display the word placeholders
 function updateWordDisplay() {
   wordElement.innerHTML = guessedWord.map(letter => `<span class="letter">${letter}</span>`).join("");
 }
 
-// Step 4: Generate the keyboard
+// Generate the keyboard
 function createKeyboard() {
   for (let i = 97; i <= 122; i++) {
     const button = document.createElement("button");
@@ -26,7 +26,7 @@ function createKeyboard() {
   }
 }
 
-// Step 5: Handle guesses
+// Handle guesses
 function handleGuess(letter, button) {
   button.disabled = true; // Disable the button after clicking
   if (word.includes(letter)) {
@@ -50,14 +50,14 @@ function handleGuess(letter, button) {
   }
 }
 
-// Step 6: Update the Hangman visual
+// Update the Hangman visual
 function updateHangman() {
   if (attempts <= maxAttempts) {
     hangmanParts[attempts - 1].style.display = "block";
   }
 }
 
-// Step 7: Disable the keyboard (end the game)
+// Disable the keyboard (end the game)
 function disableKeyboard() {
   const buttons = keyboardElement.querySelectorAll("button");
   buttons.forEach((button) => (button.disabled = true));
