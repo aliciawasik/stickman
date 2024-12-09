@@ -1,4 +1,5 @@
 # stickman
+In this timeless Hangman game, your mission is simple: guess the secret word one letter at a time. You have 10 attempts before Stickman is fully drawn!
 
 ## Author
 Alicia Wasik [email:aliciaawasik@lewisu.edu](mailto:aliciaawasik@lewisu.edu)
